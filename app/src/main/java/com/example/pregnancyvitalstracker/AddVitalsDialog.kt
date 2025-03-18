@@ -26,12 +26,12 @@ fun AddVitalsDialog(onDismissRequest: () -> Unit, onVitalsAdded: (VitalsLog) -> 
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp),
-            shape = MaterialTheme.shapes.medium // Optional: Adds a rounded corner to the card
+            shape = MaterialTheme.shapes.medium
         ) {
             Column(
                 modifier = Modifier.padding(16.dp),
-                verticalArrangement = Arrangement.spacedBy(16.dp), // Adjust spacing as needed
-                horizontalAlignment = Alignment.CenterHorizontally // Center the content
+                verticalArrangement = Arrangement.spacedBy(16.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
 
                 Text(
@@ -39,27 +39,27 @@ fun AddVitalsDialog(onDismissRequest: () -> Unit, onVitalsAdded: (VitalsLog) -> 
                     style = TextStyle(
                         fontSize = 24.sp,
                         fontWeight = FontWeight.Bold,
-                        color = Color(0xFF592992) // Set the color to match the image
+                        color = Color(0xFF592992)
                     ),
-                    modifier = Modifier.align(Alignment.Start) // Align to the left
+                    modifier = Modifier.align(Alignment.Start)
                 )
 
                 Row(
                     modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp) // Space between Sys BP and Dia BP fields
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     OutlinedTextField(
                         value = sysBP,
                         onValueChange = { sysBP = it },
                         label = { Text("Sys BP") },
-                        modifier = Modifier.weight(1f)  // Take equal width
+                        modifier = Modifier.weight(1f)
                     )
 
                     OutlinedTextField(
                         value = diaBP,
                         onValueChange = { diaBP = it },
                         label = { Text("Dia BP") },
-                        modifier = Modifier.weight(1f)  // Take equal width
+                        modifier = Modifier.weight(1f)
                     )
                 }
 
@@ -68,7 +68,7 @@ fun AddVitalsDialog(onDismissRequest: () -> Unit, onVitalsAdded: (VitalsLog) -> 
                     value = weight,
                     onValueChange = { weight = it },
                     label = { Text("Weight ( in kg )") },
-                    modifier = Modifier.fillMaxWidth()   // Fill width
+                    modifier = Modifier.fillMaxWidth()
 
                 )
 
@@ -76,7 +76,7 @@ fun AddVitalsDialog(onDismissRequest: () -> Unit, onVitalsAdded: (VitalsLog) -> 
                     value = babyKicks,
                     onValueChange = { babyKicks = it },
                     label = { Text("Baby Kicks") },
-                    modifier = Modifier.fillMaxWidth()    // Fill width
+                    modifier = Modifier.fillMaxWidth()
                 )
 
 
@@ -97,25 +97,20 @@ fun AddVitalsDialog(onDismissRequest: () -> Unit, onVitalsAdded: (VitalsLog) -> 
                                 )
                                 onVitalsAdded(newVitals)
                             } catch (e: NumberFormatException) {
-                                // Handle error
                                 println("Error: Invalid number format")
-                                // You should display an error message to the user here!
                             }
                         } else {
-                            // Handle validation error
                             println("Error: All fields must be filled.")
-                            // You should display an error message to the user here!
                         }
 
                     },
                     modifier = Modifier
                         .padding(top = 16.dp)
-                        .width(200.dp),  // Adjust width as needed
+                        .width(200.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF9C27B0))
-                    //fillMaxWidth() // Make the button fill the width
 
                 ) {
-                    Text("Submit", color = Color.White) // Set text color to white for better visibility
+                    Text("Submit", color = Color.White)
 
                 }
 
