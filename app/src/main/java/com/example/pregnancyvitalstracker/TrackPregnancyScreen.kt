@@ -1,10 +1,7 @@
 package com.example.pregnancyvitalstracker
 
-//noinspection UsingMaterialAndMaterial3Libraries
-//noinspection UsingMaterialAndMaterial3Libraries
-//noinspection UsingMaterialAndMaterial3Libraries
-//noinspection UsingMaterialAndMaterial3Libraries
-//noinspection UsingMaterialAndMaterial3Libraries
+
+import androidx.compose.ui.tooling.preview.Preview
 //noinspection UsingMaterialAndMaterial3Libraries
 //noinspection UsingMaterialAndMaterial3Libraries
 import androidx.compose.foundation.layout.Column
@@ -84,3 +81,25 @@ fun VitalsLogItem(log: VitalsLog) {
             Text("Recorded at: ${log.timestamp}")
         }
     }
+
+@Preview
+@Composable
+fun TrackPregnancyScreenPreview() {
+    TrackPregnancyScreen()
+}
+
+@Preview
+@Composable
+fun VitalsListPreview() {
+    val vitalsLogs = listOf(
+        VitalsLog(120, 80, 70, 65, 5, "2023-10-27 10:00"),
+        VitalsLog(130, 85, 75, 66, 6, "2023-10-27 11:00"),
+        VitalsLog(125, 82, 72, 64, 7, "2023-10-27 12:00"),
+    )
+    VitalsList(vitalsLogs)
+}
+@Preview
+@Composable
+fun VitalsLogItemPreview(){
+    VitalsLogItem(log = VitalsLog(120, 80, 70, 65, 5, "2023-10-27 10:00"))
+}
